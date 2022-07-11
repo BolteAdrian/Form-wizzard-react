@@ -1,6 +1,6 @@
 import "./App.css";
 import Stepper from "./Stepper";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { loadData, SaveValuesToDb } from "./backend";
 
 function App() {

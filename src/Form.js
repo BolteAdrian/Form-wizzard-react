@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Input from "@mui/material/Input";
+import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
@@ -59,11 +59,12 @@ function Form({ fields, step, submit, children }) {
                 </label>
               ) : (
                 <>
-                  <label>{field.label}: &nbsp; &nbsp;</label>
-                  <Input
+                  <TextField
                     {...field}
                     inputProps={{ pattern: field.pattern }}
                     required={field.required}
+                    helperText={field.errormessage}
+                    variant="standard"
                     onChange={(event) =>
                       onInputValueUpdated(field.name, event.target.value)
                     }
@@ -72,7 +73,6 @@ function Form({ fields, step, submit, children }) {
               )}
             </div>
           ))}
-
         {children}
       </form>
     </div>

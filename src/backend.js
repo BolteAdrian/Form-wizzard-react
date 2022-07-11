@@ -2,28 +2,20 @@ import { FORM_BUILDER_URL, SAVED_DATA_URL } from "./Config";
 
 export const loadData = async () => {
   const res = await fetch(FORM_BUILDER_URL);
-  
-  return ConvertFieldsToForm(await res.json());
+
+  return groupFields(await res.json());
 };
 
-const ConvertFieldsToForm = (res) => {
-  const fields = res;
-  let array = [];
-  const array2 = [];
+const groupFields = (fields) => {
+  const resultObject = [];
 
-  if (fields.length > 0) {
-    fields.map((field, i) => {
-      if (field.id % 2 && field.id > 1) {
-        array.push(field);
-        array2.push(array);
-        array = [];
-      } else {
-        array.push(field);
-      }
-    });
-  }
-
-  return array2;
+  fields.forEach((field) => {
+    if (resultObject[field.step] === undefined) {
+      resultObject[field.step] = [];
+    }
+    resultObject[field.step].push(field);
+  });
+  return resultObject;
 };
 
 export const SaveValuesToDb = async (value) => {
