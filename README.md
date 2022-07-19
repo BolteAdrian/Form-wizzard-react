@@ -17,7 +17,7 @@ Step2
 Step3
 ![Screenshot from 2022-07-19 21-53-49](https://user-images.githubusercontent.com/87446991/179827509-bf2f9cff-0ca8-4c6e-9af4-5b4d4190f0f2.png)
 
-The fields are genereted from a virtual database with a table with 3 columns: label, name and type
+The fields are genereted from a virtual database
 ![Screenshot from 2022-07-19 21-54-06](https://user-images.githubusercontent.com/87446991/179827760-bf3f140e-d1d1-4889-af9f-c719d0b3bf7f.png)
 
 After we submit the form, the results are send to a database:
